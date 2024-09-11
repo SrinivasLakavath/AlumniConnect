@@ -1,0 +1,43 @@
+<div class="container">
+
+    <h3 class="text-center">Let's Talk</h3><br />
+
+    <div class="row">
+        <div class="col-md-8">
+            <form [formGroup]="contactForm">
+                <div class="form-group">
+                    <input class="form-control" formControlName="name" placeholder="Name..." />
+                </div>
+                <div class="form-group">
+                    <input class="form-control" formControlName="phone" placeholder="Phone..." />
+                </div>
+                <div class="form-group">
+                    <input class="form-control" formControlName="email" placeholder="E-mail..." />
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" formControlName="feedback" placeholder="How can we help you?" style="height:150px;"></textarea>
+                <span class="correct"> {{ correct }}</span>
+                </div>   
+                <div class="form-group text-center">
+                    <input class="btn btn-primary" style="width:20%;" (click)="sendfeedback()" type="submit" value="Send" />
+                    <input class="btn btn-secondary" style="width:20%" type="reset" value="Clear" />
+                </div>
+            </form>
+        </div>
+        <div class="col-md-4">
+            <b>Get In Touch: </b> <br /> Phone: <a href="tel: +917795481747">+91 779 548 1747 </a> <br /> E-mail: <a href="mailto:alumni_connect@gmail.com">alumni_connect&#64;gmail.com</a><br />
+            <br /><br />
+            <b>Where to Find Us: </b><br /> Anurag University, <br /> The Imaginators<br /> Hyderabad -500001<br /> Phone: +91 7780571290<br />
+            <a href="kurukshetrawarriors@gmail.com">kurukshetrawarriors&#64;gmail.com</a><br />
+
+
+            <br /><br />
+            <b>Follow us on: </b><br />
+            <a href="#" class="fa fa-facebook"></a>
+            <a href="#" class="fa fa-twitter"></a>
+            <a href="#" class="fa fa-google"></a>
+            <a href="#" class="fa fa-instagram"></a>
+        </div>
+    </div>
+
+</div>

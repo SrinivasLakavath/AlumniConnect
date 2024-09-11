@@ -1,0 +1,56 @@
+<div class="row">
+  <div class="leftcolumn">
+    <div class="card cardBig">
+      <div class="card cardSmall">
+        <h3 style="margin-bottom: 25px; text-align: center;"> Create New Post</h3>
+
+        <form role="form" [formGroup]="postForm">
+          <div class="form-group">
+            <label class="col-md-2" style="display:inline-block;"> Post as: </label>
+            <select class="form-control col-md-3" style="display:inline-block;" formControlName="uname" type="text" id="uname">
+              <option value="Anonymus" selected>Anonymus</option>
+              <option value={{username}}>{{username}}</option>
+            </select>
+            <input class="form-control col-md-6" style="float: right;display: inline-block;" formControlName="title"
+              type="text" id="title" name="title" placeholder="Title">
+          </div>
+          <div class="form-group">
+            <textarea formControlName="content" type="textarea" rows="4" class="form-control" id="content" name="content"
+              placeholder="Share your experience"></textarea>
+            <label class="invalid"> {{ invalid }}</label>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-primary" style="width:20%;" (click)="createPost()">Post</button>
+            <button type="reset" class="btn btn-warning" style="width:20%;" value="Clear">Clear</button>
+          </div>
+        </form>
+      </div>
+      <hr>
+
+      <div *ngFor="let post of _userService.posts.slice().reverse();">
+        <div class="card cardSmall">
+          <h2 style="font-family: 'Ubuntu Mono', monospace;"><u>{{post.title}} </u></h2>
+          <p>Posted by {{post.uname}}</p>
+          <p> <em>{{post.creation_dt | date: 'shortTime'}}, {{post.creation_dt | date: 'mediumDate'}} </em></p>
+          <p style="font-family: 'Montserrat', sans-serif; text-align: justify; text-justify: inter-word;">{{post.content}}</p>
+          <button type="button" class="btn btn-danger btn-circle"><i class="fa fa-heart"></i>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="rightcolumn">
+    <div class="card cardBig">
+      <h3 style="text-align: center;">New Posts</h3>
+      <div *ngFor="let post of _userService.posts.slice().reverse(); let i=index">
+        <div *ngIf="i<4">
+          <div class="card">
+            <h4 style="font-family: 'Ubuntu Condensed', sans-serif;">{{post.title}}</h4>
+            <p>Posted by {{post.uname}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
